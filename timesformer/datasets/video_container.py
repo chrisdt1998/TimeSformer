@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
 import av
+import os
 
 
 def get_video_container(path_to_vid, multi_thread_decode=False, backend="pyav"):
@@ -20,6 +21,8 @@ def get_video_container(path_to_vid, multi_thread_decode=False, backend="pyav"):
         return container
     elif backend == "pyav":
         #try:
+        path_to_vid = os.path.join(r'C:\Users\Gebruiker\Documents\GitHub\Research_internship\avi_videos', path_to_vid.lower())
+        #print("LOLOL ", path_to_vid)
         container = av.open(path_to_vid)
         if multi_thread_decode:
             # Enable multiple threads for decoding.
